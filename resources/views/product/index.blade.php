@@ -6,6 +6,8 @@
 
 @section('content')
 
+    <a href="{{url('/admin/products/create')}}">Thêm sản phẩm</a>
+
     <table class="table table-bordered" id="myTable">
         <thead>
         <tr>
@@ -19,10 +21,12 @@
         <tr>
             <td>
                 <p>{{ $product->name }}</p>
+                <a href="{{ url('/admin/products/'.$product->id)  }}">
                 <img src="{{$product->image}}" width="200px" >
+                </a>
             </td>
             <td>
-                {{ $product->description  }}
+                {!!   $product->description  !!}
             </td>
             <td>
                 <a type="button" class="btn btn-warning" href="{{url('/admin/products/'.$product->id.'/edit')}}">Sửa</a>
@@ -41,8 +45,6 @@
         @endforelse
         </tbody>
     </table>
-
-
 
 @endsection
 
